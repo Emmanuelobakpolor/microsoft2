@@ -22,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7y$v8d9!o(+b#vj7udt_d9@2lt#@itg#4j-mcy(ik*9$w_xcfy'
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-7y$v8d9!o(+b#vj7udt_d9@2lt#@itg#4j-mcy(ik*9$w_xcfy')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*', 'my-django-app-2026-aqhchhhmgrf6hqbc.canadacentral-01.azurewebsites.net']
-
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
 
 # Application definition
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'core',
 ]
 
