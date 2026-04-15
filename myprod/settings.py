@@ -27,8 +27,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-7y$v8d9!o(+b#vj7udt_d9@2lt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = [h.strip() for h in os.getenv('ALLOWED_HOSTS', '*').split(',') if h.strip()]
-CSRF_TRUSTED_ORIGINS = [h.strip() for h in os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if h.strip()]
+ALLOWED_HOSTS = ['my-django-app-2026-aqhchhhmgrf6hqbc.canadacentral-01.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://my-django-app-2026-aqhchhhmgrf6hqbc.canadacentral-01.azurewebsites.net']
 
 # Application definition
 
